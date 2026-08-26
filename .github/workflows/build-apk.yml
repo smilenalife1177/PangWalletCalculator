@@ -1,16 +1,19 @@
-name: Build 胖錢包計算機 App v1.0
+name: Build 胖錢包計算機 App v1.1
 
 on:
   workflow_dispatch:
-  push:
-    branches: [ "main", "master" ]
 
 permissions:
   contents: read
 
+concurrency:
+  group: pangwallet-apk-build
+  cancel-in-progress: true
+
 jobs:
   build:
     runs-on: ubuntu-latest
+    timeout-minutes: 20
 
     steps:
       - name: Checkout
@@ -25,25 +28,26 @@ jobs:
       - name: Setup Android SDK
         uses: android-actions/setup-android@v3
 
-      - name: Install Android 36 SDK
-        run: sdkmanager "platforms;android-36" "build-tools;35.0.0"
+      - name: Install Android 35 SDK
+        run: sdkmanager "platforms;android-35" "build-tools;35.0.0"
 
-      - name: Setup Gradle 8.13
+      - name: Setup Gradle 8.9
         uses: gradle/actions/setup-gradle@v4
         with:
-          gradle-version: '8.13'
+          gradle-version: '8.9'
 
-      - name: Build installable APK
-        run: gradle :app:assembleDebug --stacktrace
+      - name: Build v1.1 APK
+        run: gradle :app:assembleDebug --stacktrace --no-daemon
 
-      - name: Rename APK
+      - name: Prepare APK
         run: |
           mkdir -p release
-          cp app/build/outputs/apk/debug/app-debug.apk "release/胖錢包計算機_App_v1.0_26合1_Widget.apk"
+          cp app/build/outputs/apk/debug/app-debug.apk \
+          "release/胖錢包計算機_App_v1.1_CreamDenim_Widget.apk"
 
-      - name: Upload APK
+      - name: Upload v1.1 APK
         uses: actions/upload-artifact@v4
         with:
-          name: 胖錢包計算機-App-v1.0-APK
-          path: release/胖錢包計算機_App_v1.0_26合1_Widget.apk
+          name: 胖錢包計算機-App-v1.1-APK
+          path: release/胖錢包計算機_App_v1.1_CreamDenim_Widget.apk
           if-no-files-found: error
