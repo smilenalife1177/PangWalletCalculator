@@ -1,4 +1,4 @@
-name: Build 胖錢包計算機 APK
+name: Build 胖錢包計算機 App v1.0
 
 on:
   workflow_dispatch:
@@ -22,22 +22,28 @@ jobs:
           distribution: temurin
           java-version: '17'
 
-      - name: Setup Gradle 8.9
+      - name: Setup Android SDK
+        uses: android-actions/setup-android@v3
+
+      - name: Install Android 36 SDK
+        run: sdkmanager "platforms;android-36" "build-tools;35.0.0"
+
+      - name: Setup Gradle 8.13
         uses: gradle/actions/setup-gradle@v4
         with:
-          gradle-version: '8.9'
+          gradle-version: '8.13'
 
-      - name: Build installable debug APK
+      - name: Build installable APK
         run: gradle :app:assembleDebug --stacktrace
 
       - name: Rename APK
         run: |
           mkdir -p release
-          cp app/build/outputs/apk/debug/app-debug.apk "release/胖錢包計算機.apk"
+          cp app/build/outputs/apk/debug/app-debug.apk "release/胖錢包計算機_App_v1.0_26合1_Widget.apk"
 
       - name: Upload APK
         uses: actions/upload-artifact@v4
         with:
-          name: 胖錢包計算機-apk
-          path: release/胖錢包計算機.apk
+          name: 胖錢包計算機-App-v1.0-APK
+          path: release/胖錢包計算機_App_v1.0_26合1_Widget.apk
           if-no-files-found: error
