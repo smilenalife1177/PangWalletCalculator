@@ -1,35 +1,33 @@
-# 胖錢包計算機 Widget™ v1.0
+# 胖錢包計算機 App™ v1.0｜26合1生活計算 × 桌面 Widget版
 
-這不是「點進 App 才能用」的計算機，而是 Android 手機桌面 Widget。
+這一版把兩條線正式合在一起：
 
-## 已完成
-- 桌面直接按數字、加減乘除、等號、清除
-- 可拖曳到桌面任何位置
-- 可拉大 / 縮小；尺寸變小時自動切換 compact 版
-- 名胖圖片已內建，並處理成透明背景 PNG
-- 每一個 Widget 各自保存計算狀態
-- 關螢幕、重開手機後，最後數字仍保留
-- 第一次開 App 有「＋ 加到手機桌面」按鈕
+1. **App 內：26 合 1 生活計算**
+   - 直接載入微笑娜生活萬用計算機 v2.8 公開版
+   - 保留搜尋、分類、收藏、最近使用與 26 種生活計算
+   - 匯率等線上資料可直接使用網站最新邏輯
 
-## 用 Android Studio 開啟
-1. File → Open → 選整個 `PangWalletCalculator` 資料夾。
-2. 等 Gradle Sync 完成。
-3. 接 Android 手機，開啟 USB 偵錯。
-4. Run ▶ 安裝到手機。
-5. 第一次打開「胖錢包計算機」，按「＋ 加到手機桌面」。
-6. 之後直接在桌面使用，不必再打開 App。
+2. **手機桌面：胖錢包 Widget**
+   - 不開 App 也能直接四則運算
+   - 名胖角色保留
+   - 支援拖曳與尺寸調整
+   - 每顆 Widget 各自保存計算狀態
 
-也可長按桌面 → 小工具 / Widgets → 胖錢包計算機。
+## v1.0 架構
 
-## 重要檔案
-- `WalletCalculatorWidget.kt`：計算邏輯、按鍵、保存狀態、縮放切版
-- `widget_wallet_full.xml`：大版桌面計算機
-- `widget_wallet_compact.xml`：縮小版
-- `mingpang.png`：名胖透明背景圖
+目前 App 內的 26 合 1採「原生 Android App 外殼 + 安全 WebView」方式載入現行 v2.8 網頁。
+好處是：網站邏輯更新後，App 不必重新發布就能同步收到 26 合 1的新修正。
+桌面 Widget 則是原生 Android 功能，可離線四則運算。
 
-## v1.0 計算鍵
-7 8 9 ÷
-4 5 6 ×
-1 2 3 −
-0 . + =
-C 清除
+## GitHub 自動編譯 APK
+
+把解壓後的整個專案內容上傳到 GitHub 倉庫根目錄。
+`.github/workflows/build-apk.yml` 會自動建立可安裝 APK。
+
+到：Actions → Build 胖錢包計算機 App v1.0 → 最新綠色勾勾 → Artifacts
+下載：`胖錢包計算機-App-v1.0-APK`
+
+## Google Play 下一階段
+
+目前先用 APK 做手機實測。
+Google Play 正式上架會另外建立「Release AAB + Upload Key 簽章」流程，避免用 debug 簽章誤上架。
