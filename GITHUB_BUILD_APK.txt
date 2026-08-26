@@ -1,0 +1,16 @@
+《胖錢包計算機》免 Android Studio 打包 APK
+
+1. 在 GitHub 建立一個新的 repository。
+2. 把 PangWalletCalculator 資料夾裡的「所有檔案」上傳到 repository 根目錄。
+   注意：.github 資料夾也要一起上傳。
+3. 上傳完成後，GitHub Actions 會自動開始編譯。
+4. 打開 repository 上方的 Actions。
+5. 點最新的「Build 胖錢包計算機 APK」。
+6. 等綠色勾勾完成。
+7. 在該次執行頁最下面 Artifacts，下載「胖錢包計算機-apk」。
+8. 解壓後會得到：胖錢包計算機.apk
+9. 傳到 Android 手機後直接點 APK 安裝。
+10. 安裝後長按手機桌面 → 小工具 → 胖錢包計算機。
+
+如果 GitHub 沒自動執行：
+Actions → Build 胖錢包計算機 APK → Run workflow。
