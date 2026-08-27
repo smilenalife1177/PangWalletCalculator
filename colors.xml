@@ -2,7 +2,7 @@
 <resources>
     <!-- 胖錢包計算機 v1.1：奶油杏 × 牛仔藍 -->
     <!-- 之後想換色，優先只改這一個檔案即可 -->
-    <color name="widget_body">#F3DFB9</color>
+    <color name="widget_body">#D8A48F</color>
     <color name="widget_border">#7A5A43</color>
 
     <color name="display_bg">#FFF8E8</color>
