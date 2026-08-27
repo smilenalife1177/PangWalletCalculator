@@ -13,15 +13,15 @@
         android:orientation="horizontal">
 
         <TextView
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:background="@drawable/bg_label"
-            android:gravity="center"
-            android:text="胖錢包\n計算機 ♥"
-            android:textColor="@color/text_main"
-            android:textSize="19sp"
-            android:textStyle="bold" />
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:background="@drawable/bg_label"
+        android:gravity="center"
+        android:text="胖錢包\n計算機 ♥"  
+        android:textColor="@color/text_main"
+        android:textSize="17sp"
+        android:textStyle="bold" />
 
         <ImageView
             android:layout_width="112dp"
